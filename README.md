@@ -7,67 +7,89 @@
 
   <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
     <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+# Task Management Backend Application
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This is a backend application built with NestJS that allows users to create, view, and delete tasks. The application uses JWT tokens and cookies for authentication and authorization. User passwords are hashed using Argon2, MongoDB is used as the database, and Redis is used for storing cookies.
+
+## Table of Contents
+1. [Features](#features)
+2. [Endpoints](#endpoints)
+3. [Improvements](#improvements)
+4. [Installation](#installation)
+5. [Environment Variables](#environment-variables)
+6. [Usage](#usage)
+7. [Technologies Used](#technologies-used)
+8. [License](#license)
+
+## Features
+- User signup and login with JWT-based authentication.
+- Task management: add, view, and delete tasks.
+- Password hashing using Argon2 for enhanced security.
+- Efficient data handling with cookies and Redis.
+- MongoDB for data storage.
+
+## Endpoints
+### Authentication
+- `POST /auth/signup`: Register a new user.
+- `POST /auth/login`: Login a user.
+- `POST /auth/logout`: Logout a user and delete the session key.
+
+### Tasks
+- `GET /task/all`: Fetch all tasks for the authenticated user.
+- `DELETE /task/delete`: Delete a specified task.
+- `POST /task/add`: Add a new task to the database.
+
+## Improvements
+- Store the user ID in the JWT payload instead of the user email.
+- Use a guard to check if there is data in the cookies before transferring the request to the route handler.
 
 ## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/contawo/Nest_JS_Backend_Task_Application
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd Nest_JS_Backend_Task_Application
+   ```
+3. Install the dependencies:
+   ```bash
+   npm install
+   ```
 
-```bash
-$ npm install
+## Environment Variables
+Create a `.env` file in the root directory and add the following variables:
+```env
+MONGODB_URL=mongodb://localhost:27017/nest_tasks
+AUTH_SECRET=secret_key
+APP_PORT=8000
+REDIS_HOST=localhost
+REDIS_PORT=6379
 ```
 
-## Running the app
+## Usage
+1. Make sure that you have Redis installed in your device and start the Redis server:
+   ```bash
+   redis-server
+   ```
+2. Run the application:
+   ```bash
+   npm run start:dev
+   ```
 
-```bash
-# development
-$ npm run start
+The server will be running on `http://localhost:8000`.
 
-# watch mode
-$ npm run start:dev 
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Technologies Used
+- [NestJS](https://nestjs.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [Redis](https://redis.io/)
+- [Argon2](https://www.npmjs.com/package/argon2)
+- [JWT](https://jwt.io/)
 
 ## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-Nest is [MIT licensed](LICENSE).
+---
+
+If you encounter any issues or have questions, feel free to open an issue on the [GitHub repository](https://github.com/contawo/Nest_JS_Backend_Task_Application).
