@@ -5,9 +5,6 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-
 # Task Management Backend Application
 
 This is a backend application built with NestJS that allows users to create, view, and delete tasks. The application uses JWT tokens and cookies for authentication and authorization. User passwords are hashed using Argon2, MongoDB is used as the database, and Redis is used for storing cookies.
