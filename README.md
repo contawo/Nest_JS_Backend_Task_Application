@@ -7,7 +7,7 @@
 
 # Task Management Backend Application
 
-This is a backend application built with NestJS that allows users to create, view, and delete tasks. The application uses JWT tokens and cookies for authentication and authorization. User passwords are hashed using Argon2, MongoDB is used as the database, and Redis is used for storing cookies.
+This is a backend application built with NestJS that allows users to create, view, and delete tasks. The application uses JWT tokens and cookies for authentication and authorization. User passwords are hashed using Argon2, MongoDB is used as the database, and Redis is used for caching.
 
 ## Table of Contents
 1. [Features](#features)
@@ -23,7 +23,7 @@ This is a backend application built with NestJS that allows users to create, vie
 - User signup and login with JWT-based authentication.
 - Task management: add, view, and delete tasks.
 - Password hashing using Argon2 for enhanced security.
-- Efficient data handling with cookies and Redis.
+- Efficient data handling with caching and Redis.
 - MongoDB for data storage.
 
 ## Endpoints
